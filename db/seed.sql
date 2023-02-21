@@ -9,8 +9,8 @@ VALUES (1, "Board"),
 
 INSERT INTO roles (department_id, title, salary)
 VALUES (1, "CEO", 1000000),
-    (2, "Sales Lead", 100000),
-    (2, "Salesperson", 50000),
+    (2, "Artist", 100000),
+    (2, "Retail Manager", 50000),
     (3, "Lead Engineer", 100000),
     (3, "Software Engineer", 50000),
     (4, "Lead Accountant", 100000),
@@ -28,3 +28,4 @@ VALUES ("Anne", "Panagotopulos", 1, NULL),
     ("Jane", "Foster", 7, 1),
     ("Hank", "Schrader", 8, 5),
     ("Mike", "Ehrmantraut", 9, 6);
+

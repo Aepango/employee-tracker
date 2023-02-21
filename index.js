@@ -1,12 +1,12 @@
 const inquirer = require('inquirer');
-const mysql = require('mysql2');
+const mysql = require("mysql2");
 const connection = require('./db/connection.js');
 
 
 
 
-const mainmenu = () => {
-    return inquirer.prompt([{
+const mainmenu = function() {
+    inquirer.prompt([{
         name: 'action',
         type: 'list',
         message: 'What would you like to do?',
@@ -44,7 +44,7 @@ const mainmenu = () => {
 
 mainmenu()
 
-const viewAllDepartments = () => {
+const viewAllDepartments = function() {
     return connection.query(
         `SELECT * FROM departments`,
         function (err, result) {
@@ -57,7 +57,7 @@ const viewAllDepartments = () => {
     )
 }
 
-const viewAllRoles = () => {
+const viewAllRoles = function(){
     return connection.query(
         `SELECT * FROM roles`,
         (err, result) => {
@@ -70,7 +70,7 @@ const viewAllRoles = () => {
     )
 }
 
-const viewAllEmployees = () => {
+const viewAllEmployees = function(){
     return connection.query(
         `SELECT first_name, last_name, role_id, manager_id FROM employees`,
         (err, result) => {
@@ -83,7 +83,7 @@ const viewAllEmployees = () => {
     )
 }
 
-const addDepartment = () => {
+const addDepartment = function() {
     return inquirer.prompt([{
         name: "name",
         type: "input",
@@ -103,7 +103,7 @@ const addDepartment = () => {
     })
 }
 
-const addRole = () => {
+const addRole = function() {
     return inquirer.prompt([{
         name: "title",
         type: "input",
@@ -133,7 +133,7 @@ const addRole = () => {
     })
 }
 
-const addEmployee = () => {
+const addEmployee = function() {
     return inquirer.prompt([{
         name: "first_name",
         type: "input",
@@ -152,7 +152,7 @@ const addEmployee = () => {
     {
         name: "manager_id",
         type: "input",
-        message: "What is the managers ID for this employee?",
+        message: "Who is the manager for this employee?",
     }]).then(data => {
         //figure out how to put data into specific roles categories
         connection.query(`INSERT INTO employees SET ?`,
